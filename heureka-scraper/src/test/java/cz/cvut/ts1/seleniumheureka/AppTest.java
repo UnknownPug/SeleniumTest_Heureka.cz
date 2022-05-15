@@ -4,31 +4,29 @@ import org.junit.jupiter.api.Test;
 
 public class AppTest extends TestCase {
 
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue() {
-        new MainPage(getDriver())
-                .goToLoginPage()
-                .login("login", "password")
-                .laptopsPage()
-                .laptopInfo()
-                .laptopPriceDescriptionOne()
-                .backToLaptopPage()
-                .laptopPriceDescriptionTwo()
-                .backToLaptopPage()
-                .openThirdLaptopDescription()
-                .addThirdLaptopToUserBasket()
-                .goToMainPage()
-                .carPage()
-                .skodaAuto()
-                .skodaAutoDetails()
-                .advisoryCarSearch()
-                .howToChooseAuto()
-                .goBackToMainPage()
-                .heurekaProfile()
-                .exit();
-        System.out.println();
-    }
+  @Test
+  public void shouldAnswerWithTrue() {
+    new MainPage(getDriver())
+      //.acceptCookies()
+      .goToLoginPage()
+      .login("gvarph006+ts1_heureka@gmail.com", "cZs%f*Hmh&RZqKw2FPMH")
+      .navToLaptopsPage()
+      .laptopInfo()
+      .laptopPriceDescriptionOne()
+      .backToLaptopPage()
+      .laptopPriceDescriptionTwo()
+      .backToLaptopPage()
+      .openThirdLaptopDescription()
+      .addThirdLaptopToUserBasket()
+      .goToMainPage()
+      .navToCarPage()
+      .selectSkodaAuto()
+      .skodaAutoDetails()
+      .advisoryCarSearch()
+      .navToHowToChooseAuto()
+      .goBackToMainPage()
+      .navToHeurekaProfile()
+      .logOut();
+    System.out.println();
+  }
 }
