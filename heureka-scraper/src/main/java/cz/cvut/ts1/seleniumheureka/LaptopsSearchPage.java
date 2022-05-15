@@ -27,10 +27,10 @@ public class LaptopsSearchPage extends Page {
     how = How.XPATH,
     using = "//div[@id='zakaznicke-hodnoceni']//div//div//div//div//ul"
   )
-  private WebElement reviewSelection;
+  private WebElement reviewSelectionUl;
 
   @FindBy(how = How.XPATH, using = "//input[@id='availability-1']")
-  private WebElement available;
+  private WebElement needsToBeAvailableRadio;
 
   @FindBy(how = How.XPATH, using = "//button[text()='Zobrazit další možnosti']")
   private WebElement showListOfLaptops;
@@ -44,14 +44,18 @@ public class LaptopsSearchPage extends Page {
   @FindBy(how = How.XPATH, using = "//a[text()='Apple M1']")
   private WebElement selectProcessor;
 
+  @FindBy(
+    how = How.XPATH,
+    using = "//span[@class='c-star-rating__rating-value u-base']"
+  )
+  private WebElement reviews;
+
   public LaptopsSearchPage(WebDriver driver) {
     super(driver);
   }
 
   public LaptopPickModelPage laptopInfo() {
-    //TODO: select price range
-    //TODO: select review tier
-    driverWait.until(ExpectedConditions.visibilityOf(available));
+    driverWait.until(ExpectedConditions.visibilityOf(needsToBeAvailableRadio));
     jsClick(showListOfLaptops);
     driverWait.until(ExpectedConditions.visibilityOf(selectManufacturer));
     jsClick(selectManufacturer);
@@ -90,7 +94,7 @@ public class LaptopsSearchPage extends Page {
     if (tier < 1 || tier > 3) {
       throw new IllegalArgumentException("Review tier must be between 1 and 3");
     }
-    driverWait.until(ExpectedConditions.visibilityOf(reviewSelection));
+    driverWait.until(ExpectedConditions.visibilityOf(reviewSelectionUl));
 
     WebElement chosenRewiewTier = driver.findElement(
       By.xpath(String.format("//input[@id='review-%d']", tier))
@@ -102,8 +106,8 @@ public class LaptopsSearchPage extends Page {
   }
 
   public LaptopsSearchPage requireAvailability() {
-    driverWait.until(ExpectedConditions.visibilityOf(available));
-    jsClick(available);
+    driverWait.until(ExpectedConditions.visibilityOf(needsToBeAvailableRadio));
+    jsClick(needsToBeAvailableRadio);
 
     return this;
   }
@@ -129,12 +133,6 @@ public class LaptopsSearchPage extends Page {
     }
     return priceRanges;
   }
-
-  @FindBy(
-    how = How.XPATH,
-    using = "//span[@class='c-star-rating__rating-value u-base']"
-  )
-  private WebElement reviews;
 
   public List<Integer> getAllRatings() throws InterruptedException {
     driverWait.until(ExpectedConditions.visibilityOf(reviews));

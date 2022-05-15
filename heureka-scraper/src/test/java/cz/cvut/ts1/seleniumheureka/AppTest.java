@@ -14,6 +14,8 @@ public class AppTest extends TestCase {
       .goToLoginPage()
       .login(login, password) // Enter your login and password before start testing
       .navToLaptopsPage()
+      .setReviewTier(1)
+      .setPriceRange(27000, 40000)
       .laptopInfo()
       .laptopPriceDescriptionOne()
       .backToLaptopPage()
