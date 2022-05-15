@@ -8,35 +8,25 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends Page {
 
-  @FindBy(
-    how = How.XPATH,
-    using = "//input[@id='frm-loginForm-loginForm-email']"
-  )
-  private WebElement emailField;
+    @FindBy(how = How.XPATH, using = "//input[@id='frm-loginForm-loginForm-email']")
+    private WebElement emailField;
 
-  @FindBy(
-    how = How.XPATH,
-    using = "//input[@id='frm-loginForm-loginForm-password']"
-  )
-  private WebElement passwordField;
+    @FindBy(how = How.XPATH, using = "//input[@id='frm-loginForm-loginForm-password']")
+    private WebElement passwordField;
 
-  @FindBy(how = How.XPATH, using = "//button[contains(text(),'Přihlásit se')]")
-  private WebElement loginButton;
+    @FindBy(how = How.XPATH, using = "//button[contains(text(),'Přihlásit se')]")
+    private WebElement loginButton;
 
-  public LoginPage(WebDriver driver) {
-    super(driver);
-  }
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
-  public MainPage login(String email, String password) {
-    driverWait.until(ExpectedConditions.visibilityOf(emailField));
-    emailField.sendKeys(email);
-
-    driverWait.until(ExpectedConditions.visibilityOf(passwordField));
-    passwordField.sendKeys(password);
-
-    driverWait.until(ExpectedConditions.visibilityOf(loginButton));
-    jsClick(loginButton);
-
-    return new MainPage(driver);
-  }
+    public UserMainPage login(String login, String password) {
+        driverWait.until(ExpectedConditions.visibilityOf(emailField));
+        emailField.sendKeys(login);
+        driverWait.until(ExpectedConditions.visibilityOf(passwordField));
+        passwordField.sendKeys(password);
+        jsClick(loginButton);
+        return new UserMainPage(driver);
+    }
 }
