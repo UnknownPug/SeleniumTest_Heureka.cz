@@ -8,8 +8,9 @@ public class AppTest extends TestCase {
   @ParameterizedTest
   @CsvSource("ngvup3414@budgermile.rest,123456789")
   public void shouldAnswerWithTrue(String login, String password) {
-    new MainPage(getDriver())
-      .acceptCookies()
+    var pg = new MainPage(getDriver());
+    pg.acceptCookies();
+    pg
       .goToLoginPage()
       .login(login, password) // Enter your login and password before start testing
       .navToLaptopsPage()
