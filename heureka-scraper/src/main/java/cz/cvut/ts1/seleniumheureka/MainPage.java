@@ -31,15 +31,12 @@ public class MainPage extends Page {
     return new LoginPage(driver);
   }
 
-  @FindBy(
-    how = How.XPATH,
-    using = "//button[@id='c-cookie-didomi-notice-agree-button']"
-  )
+  @FindBy(how = How.XPATH, using = "//button[@id='didomi-notice-agree-button']")
   private WebElement cookieAgreeButton;
 
   public MainPage acceptCookies() {
     driverWait.until(ExpectedConditions.visibilityOf(cookieAgreeButton));
-    cookieAgreeButton.click();
+    jsClick(cookieAgreeButton);
     return this;
   }
 }

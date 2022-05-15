@@ -1,6 +1,7 @@
 package cz.cvut.ts1.seleniumheureka;
 
 import java.time.Duration;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,5 +22,12 @@ public class Page {
   protected void jsClick(WebElement element) {
     JavascriptExecutor executor = (JavascriptExecutor) driver;
     executor.executeScript("arguments[0].click();", element);
+  }
+
+  public Boolean isThereACookiePopUp() {
+    driverWait.withTimeout(Duration.ofSeconds(1));
+    return !driver
+      .findElements(By.xpath("//div[@id='didomi-popup']"))
+      .isEmpty();
   }
 }
