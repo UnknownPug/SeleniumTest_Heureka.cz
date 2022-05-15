@@ -67,38 +67,3 @@ public class IndividualTests extends TestCase {
     }
   }
 }
-    pp.logOut();
-    assertFalse(pp.isLoggedIn());
-  }
-
-  @Test
-  public void dismissCookies() {
-    MainPage page = new MainPage(getDriver());
-    assertTrue(page.isThereACookiePopUp()); // need to start with cookie pop-up
-    page.acceptCookies();
-    assertFalse(page.isThereACookiePopUp());
-    LoginPage loginPage = page.goToLoginPage();
-    assertFalse(loginPage.isThereACookiePopUp()); // check if it persists
-  }
-
-  @ParameterizedTest
-  @CsvSource({ "10000,30000", "25000,20000", "60000,70000" })
-  public void laptopPrice(int min, int max) {
-    if (min > max) {
-      int tmp = min;
-      min = max;
-      max = tmp;
-    }
-    var driver = getDriver();
-    driver.get("https://notebooky.heureka.cz/");
-    var pg = new LaptopsSearchPage(driver);
-    pg.setPriceRange(min, max); //.setReviewTier(1).requireAvailability();
-    List<int[]> pricepairs = pg.getPriceRange();
-    for (int[] prices : pricepairs) {
-      for (int price : prices) {
-        assertTrue(price >= min);
-        assertTrue(price <= max);
-      }
-    }
-  }
-}
