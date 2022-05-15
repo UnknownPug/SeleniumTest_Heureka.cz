@@ -24,13 +24,4 @@ public class MainPage extends Page {
     jsClick(loginLink);
     return new LoginPage(driver);
   }
-
-  @FindBy(how = How.XPATH, using = "//button[@id='didomi-notice-agree-button']")
-  private WebElement cookieAgreeButton;
-
-  public MainPage acceptCookies() {
-    driverWait.until(ExpectedConditions.visibilityOf(cookieAgreeButton));
-    jsClick(cookieAgreeButton);
-    return this;
-  }
 }

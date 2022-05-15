@@ -1,7 +1,5 @@
 package cz.cvut.ts1.seleniumheureka;
 
-import java.util.regex.Pattern;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -67,25 +65,5 @@ public class UserMainPage extends Page {
     driverWait.until(ExpectedConditions.visibilityOf(openHeurekaProfile));
     jsClick(openHeurekaProfile);
     return new ProfilePage(driver);
-  }
-
-  final String userNameLabelXpath =
-    "//div[@id='rootHead']//ul//li[@class='c-user-controls__item c-user-controls__item--user']" +
-    "//a//span[@class='c-user-controls__label']";
-
-  @FindBy(how = How.XPATH, using = userNameLabelXpath)
-  private WebElement userNameLabel;
-
-  public String getUserName() {
-    driverWait.until(
-      ExpectedConditions.and(
-        ExpectedConditions.visibilityOf(userNameLabel),
-        ExpectedConditions.textMatches(
-          By.xpath(userNameLabelXpath),
-          Pattern.compile(".+@.+\\..+")
-        )
-      )
-    );
-    return userNameLabel.getText();
   }
 }
