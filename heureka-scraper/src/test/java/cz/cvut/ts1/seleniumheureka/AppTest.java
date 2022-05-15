@@ -4,29 +4,28 @@ import org.junit.jupiter.api.Test;
 
 public class AppTest extends TestCase {
 
-  @Test
-  public void shouldAnswerWithTrue() {
-    new MainPage(getDriver())
-      //.acceptCookies()
-      .goToLoginPage()
-      .login("gvarph006+ts1_heureka@gmail.com", "cZs%f*Hmh&RZqKw2FPMH")
-      .navToLaptopsPage()
-      .laptopInfo()
-      .laptopPriceDescriptionOne()
-      .backToLaptopPage()
-      .laptopPriceDescriptionTwo()
-      .backToLaptopPage()
-      .openThirdLaptopDescription()
-      .addThirdLaptopToUserBasket()
-      .goToMainPage()
-      .navToCarPage()
-      .selectSkodaAuto()
-      .skodaAutoDetails()
-      .advisoryCarSearch()
-      .navToHowToChooseAuto()
-      .goBackToMainPage()
-      .navToHeurekaProfile()
-      .logOut();
-    System.out.println();
-  }
+    @Test
+    public void shouldAnswerWithTrue() {
+        new MainPage(getDriver())
+                //.acceptCookies()
+                .goToLoginPage()
+                .login("login", "password") // Enter your login and password before start testing
+                .navToLaptopsPage()
+                .laptopInfo()
+                .laptopPriceDescriptionOne()
+                .backToLaptopPage()
+                .laptopPriceDescriptionTwo()
+                .backToLaptopPage()
+                .openThirdLaptopDescription()
+                .addThirdLaptopToUserBasket()
+                .goToMainPage()
+                .navToCarPage()
+                .skodaAutoDetails()
+                .advisoryCarSearch()
+                .navToHowToChooseAuto()
+                .goBackToMainPage()
+                .navToHeurekaProfile()
+                .logOut();
+        System.out.println(); //Select this line and run debug to see the testing process
+    }
 }

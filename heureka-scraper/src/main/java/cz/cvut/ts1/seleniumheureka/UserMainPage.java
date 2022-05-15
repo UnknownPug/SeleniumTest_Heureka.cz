@@ -1,6 +1,8 @@
 package cz.cvut.ts1.seleniumheureka;
 
 import java.time.Duration;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,10 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class UserMainPage extends Page {
 
   // Laptops search
-  @FindBy(
-    how = How.XPATH,
-    using = "//span[text()='Elektronika']//ancestor::a[@class='c-categories-list__link']"
-  )
+  @FindBy(how = How.XPATH, using = "//span[text()='Elektronika']//ancestor::a[@class='c-categories-list__link']")
   private WebElement electronicsSearch;
 
   @FindBy(how = How.XPATH, using = "//a[@href='https://notebooky.heureka.cz/']") // This should be fine, but it would be better to change it
@@ -53,7 +52,7 @@ public class UserMainPage extends Page {
     return new LaptopsSearchPage(driver);
   }
 
-  public CarSearchPage navToCarPage() {
+  public ChooseSkodaAutoPage navToCarPage() {
     WebDriverWait driverWait = new WebDriverWait(
       driver,
       Duration.ofSeconds(20)
@@ -62,7 +61,7 @@ public class UserMainPage extends Page {
     jsClick(carSearch);
     driverWait.until(ExpectedConditions.visibilityOf(chooseCar));
     jsClick(chooseCar);
-    return new CarSearchPage(driver);
+    return new ChooseSkodaAutoPage(driver);
   }
 
   public ProfilePage navToHeurekaProfile() {
