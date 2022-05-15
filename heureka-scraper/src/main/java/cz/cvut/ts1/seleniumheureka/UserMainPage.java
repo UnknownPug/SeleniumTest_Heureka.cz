@@ -1,19 +1,20 @@
 package cz.cvut.ts1.seleniumheureka;
 
-import java.time.Duration;
-import java.util.List;
-
+import java.util.regex.Pattern;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UserMainPage extends Page {
 
   // Laptops search
-  @FindBy(how = How.XPATH, using = "//span[text()='Elektronika']//ancestor::a[@class='c-categories-list__link']")
+  @FindBy(
+    how = How.XPATH,
+    using = "//span[text()='Elektronika']//ancestor::a[@class='c-categories-list__link']"
+  )
   private WebElement electronicsSearch;
 
   @FindBy(how = How.XPATH, using = "//a[@href='https://notebooky.heureka.cz/']") // This should be fine, but it would be better to change it
@@ -53,10 +54,6 @@ public class UserMainPage extends Page {
   }
 
   public ChooseSkodaAutoPage navToCarPage() {
-    WebDriverWait driverWait = new WebDriverWait(
-      driver,
-      Duration.ofSeconds(20)
-    );
     driverWait.until(ExpectedConditions.visibilityOf(carSearch));
     jsClick(carSearch);
     driverWait.until(ExpectedConditions.visibilityOf(chooseCar));
@@ -65,14 +62,30 @@ public class UserMainPage extends Page {
   }
 
   public ProfilePage navToHeurekaProfile() {
-    WebDriverWait driverWait = new WebDriverWait(
-      driver,
-      Duration.ofSeconds(20)
-    );
     driverWait.until(ExpectedConditions.visibilityOf(clickOnProfile));
     clickOnProfile.click();
     driverWait.until(ExpectedConditions.visibilityOf(openHeurekaProfile));
     jsClick(openHeurekaProfile);
     return new ProfilePage(driver);
+  }
+
+  final String userNameLabelXpath =
+    "//div[@id='rootHead']//ul//li[@class='c-user-controls__item c-user-controls__item--user']" +
+    "//a//span[@class='c-user-controls__label']";
+
+  @FindBy(how = How.XPATH, using = userNameLabelXpath)
+  private WebElement userNameLabel;
+
+  public String getUserName() {
+    driverWait.until(
+      ExpectedConditions.and(
+        ExpectedConditions.visibilityOf(userNameLabel),
+        ExpectedConditions.textMatches(
+          By.xpath(userNameLabelXpath),
+          Pattern.compile(".+@.+\\..+")
+        )
+      )
+    );
+    return userNameLabel.getText();
   }
 }
