@@ -108,7 +108,7 @@ public class LaptopsSearchPage extends Page {
     return this;
   }
 
-  public List<int[]> getPriceRange() {
+  public List<int[]> getAllPriceRanges() {
     List<int[]> priceRanges = new ArrayList<>();
     List<WebElement> priceRange = driver.findElements(
       By.xpath("//div[@class='c-product__price']//span")
@@ -128,5 +128,33 @@ public class LaptopsSearchPage extends Page {
       priceRanges.add(new int[] { firstPrice, secondPrice });
     }
     return priceRanges;
+  }
+
+  @FindBy(
+    how = How.XPATH,
+    using = "//span[@class='c-star-rating__rating-value u-base']"
+  )
+  private WebElement reviews;
+
+  public List<Integer> getAllRatings() throws InterruptedException {
+    driverWait.until(ExpectedConditions.visibilityOf(reviews));
+    Thread.sleep(1000);
+    List<Integer> ratings = new ArrayList<>();
+    List<WebElement> ratingsElements = driver.findElements(
+      By.xpath("//span[@class='c-star-rating__rating-value u-base']")
+    );
+    for (WebElement rating : ratingsElements) {
+      String ratingStr = rating.getAttribute("innerHTML");
+
+      ratingStr = ratingStr.replaceAll("[^0-9.]", "");
+      if (ratingStr.equals("")) {
+        continue;
+      }
+      System.out.println(ratingStr);
+
+      int ratingInt = Integer.parseInt(ratingStr);
+      ratings.add(ratingInt);
+    }
+    return ratings;
   }
 }

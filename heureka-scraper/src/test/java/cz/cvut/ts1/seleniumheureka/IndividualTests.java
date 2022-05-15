@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.HashMap;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -58,12 +59,29 @@ public class IndividualTests extends TestCase {
     driver.get("https://notebooky.heureka.cz/");
     var pg = new LaptopsSearchPage(driver);
     pg.setPriceRange(min, max); //.setReviewTier(1).requireAvailability();
-    List<int[]> pricepairs = pg.getPriceRange();
+    List<int[]> pricepairs = pg.getAllPriceRanges();
     for (int[] prices : pricepairs) {
       for (int price : prices) {
         assertTrue(price >= min);
         assertTrue(price <= max);
       }
+    }
+  }
+
+  @ParameterizedTest
+  @CsvSource({ "1", "2", "3" })
+  public void laptopRating(int tier) throws InterruptedException {
+    HashMap<Integer, Integer> ratings = new HashMap<>();
+    ratings.put(1, 95);
+    ratings.put(2, 90);
+    ratings.put(3, 80);
+    var driver = getDriver();
+    driver.get("https://notebooky.heureka.cz/");
+    var pg = new LaptopsSearchPage(driver);
+    pg.setReviewTier(tier);
+    List<Integer> loadedRatings = pg.getAllRatings();
+    for (int rating : loadedRatings) {
+      assertTrue(rating >= ratings.get(tier));
     }
   }
 }
