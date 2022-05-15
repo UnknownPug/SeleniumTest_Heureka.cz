@@ -2,8 +2,10 @@ package cz.cvut.ts1.seleniumheureka;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -69,6 +71,21 @@ public class IndividualTests extends TestCase {
   }
 
   @ParameterizedTest
+  @CsvSource({ "30000", "20000", "70000" })
+  public void laptopPriceNoMin(int max) {
+    var driver = getDriver();
+    driver.get("https://notebooky.heureka.cz/");
+    var pg = new LaptopsSearchPage(driver);
+    pg.setPriceRange(null, max); //.setReviewTier(1).requireAvailability();
+    List<int[]> pricepairs = pg.getAllPriceRanges();
+    for (int[] prices : pricepairs) {
+      for (int price : prices) {
+        assertTrue(price <= max);
+      }
+    }
+  }
+
+  @ParameterizedTest
   @CsvSource({ "1", "2", "3" })
   public void laptopRating(int tier) throws InterruptedException {
     HashMap<Integer, Integer> ratings = new HashMap<>();
@@ -83,5 +100,50 @@ public class IndividualTests extends TestCase {
     for (int rating : loadedRatings) {
       assertTrue(rating >= ratings.get(tier));
     }
+  }
+
+  @ParameterizedTest
+  @CsvSource({ "Apple,Huawei,Lenovo", "MSI,Acer,Apple" })
+  public void laptopBrand(String a, String b, String c)
+    throws InterruptedException {
+    List<String> brands = Arrays.asList(a, b, c);
+    System.out.println(brands);
+    var driver = getDriver();
+    driver.get("https://notebooky.heureka.cz/");
+    var pg = new LaptopsSearchPage(driver);
+    pg.acceptCookies();
+    pg.selectManufacturers(brands);
+    List<String> productNames = pg.getNamesOfAllResults();
+    for (String productName : productNames) {
+      boolean found = false;
+      for (String brand : brands) {
+        if (productName.contains(brand)) {
+          found = true;
+          break;
+        }
+      }
+      assertTrue(
+        found,
+        "Product name " +
+        productName +
+        " does not contain any of the brands: " +
+        brands
+      );
+    }
+  }
+
+  @Test
+  public void invalidLaptopBrand() throws InterruptedException {
+    var driver = getDriver();
+    driver.get("https://notebooky.heureka.cz/");
+    var pg = new LaptopsSearchPage(driver);
+    pg.acceptCookies();
+    assertThrows(
+      IllegalArgumentException.class,
+      () ->
+        pg.selectManufacturers(
+          Arrays.asList("Apple", "Huawei", "Lenovo", "Potato")
+        )
+    );
   }
 }

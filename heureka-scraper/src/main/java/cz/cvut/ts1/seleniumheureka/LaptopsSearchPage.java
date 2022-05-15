@@ -33,10 +33,9 @@ public class LaptopsSearchPage extends Page {
   private WebElement needsToBeAvailableRadio;
 
   @FindBy(how = How.XPATH, using = "//button[text()='Zobrazit další možnosti']")
-  private WebElement showListOfLaptops;
+  private WebElement showListOfManufacturers;
 
-  @FindBy(how = How.XPATH, using = "//a[text()='Apple']")
-  private WebElement selectManufacturer;
+  private boolean manufacturerListExpanded = false;
 
   @FindBy(how = How.XPATH, using = "//a[text()='Procesor']")
   private WebElement openProcessor;
@@ -55,10 +54,6 @@ public class LaptopsSearchPage extends Page {
   }
 
   public LaptopPickModelPage laptopInfo() {
-    driverWait.until(ExpectedConditions.visibilityOf(needsToBeAvailableRadio));
-    jsClick(showListOfLaptops);
-    driverWait.until(ExpectedConditions.visibilityOf(selectManufacturer));
-    jsClick(selectManufacturer);
     jsClick(openProcessor);
     driverWait.until(ExpectedConditions.visibilityOf(selectProcessor));
     jsClick(selectProcessor);
@@ -70,8 +65,8 @@ public class LaptopsSearchPage extends Page {
       return this;
     }
 
-    if (min > max) {
-      Integer tmp = min;
+    if (min != null && max != null && min > max) {
+      int tmp = min;
       min = max;
       max = tmp;
     }
@@ -108,6 +103,47 @@ public class LaptopsSearchPage extends Page {
   public LaptopsSearchPage requireAvailability() {
     driverWait.until(ExpectedConditions.visibilityOf(needsToBeAvailableRadio));
     jsClick(needsToBeAvailableRadio);
+
+    return this;
+  }
+
+  @FindBy(
+    how = How.XPATH,
+    using = "//div[@id='vyrobce']//div//div//div//div//ul"
+  )
+  private WebElement manufacturerList;
+
+  public LaptopsSearchPage selectManufacturers(List<String> manufacturers) {
+    if (!manufacturerListExpanded) {
+      driverWait.until(
+        ExpectedConditions.visibilityOf(showListOfManufacturers)
+      );
+      jsClick(showListOfManufacturers);
+      manufacturerListExpanded = true;
+    }
+
+    for (String manufacturer : manufacturers) {
+      WebElement manufacturerLi;
+      try {
+        manufacturerLi =
+          driver.findElement(
+            By.xpath(
+              String.format(
+                "//li//div//label[@class='c-form-cell__label c-form-cell__label--subtle e-counter']" +
+                "//a[text()='%s']",
+                manufacturer
+              )
+            )
+          );
+      } catch (Exception e) {
+        throw new IllegalArgumentException(
+          String.format("Manufacturer %s not found", manufacturer)
+        );
+      }
+      System.out.println(manufacturer);
+      driverWait.until(ExpectedConditions.visibilityOf(manufacturerLi));
+      jsClick(manufacturerLi);
+    }
 
     return this;
   }
@@ -154,5 +190,19 @@ public class LaptopsSearchPage extends Page {
       ratings.add(ratingInt);
     }
     return ratings;
+  }
+
+  public List<String> getNamesOfAllResults() throws InterruptedException {
+    List<String> manufacturers = new ArrayList<>();
+    Thread.sleep(1000);
+    List<WebElement> manufacturerElements = driver.findElements(
+      By.xpath("//a[@class='c-product__link']")
+    );
+    for (WebElement manufacturer : manufacturerElements) {
+      String ProductName = manufacturer.getText();
+      System.out.println("'" + ProductName + "'");
+      manufacturers.add(ProductName);
+    }
+    return manufacturers;
   }
 }

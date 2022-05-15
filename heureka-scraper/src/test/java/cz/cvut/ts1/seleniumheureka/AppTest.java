@@ -1,5 +1,6 @@
 package cz.cvut.ts1.seleniumheureka;
 
+import java.util.Arrays;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -16,6 +17,7 @@ public class AppTest extends TestCase {
       .navToLaptopsPage()
       .setReviewTier(1)
       .setPriceRange(27000, 40000)
+      .selectManufacturers(Arrays.asList("Apple"))
       .laptopInfo()
       .laptopPriceDescriptionOne()
       .backToLaptopPage()
