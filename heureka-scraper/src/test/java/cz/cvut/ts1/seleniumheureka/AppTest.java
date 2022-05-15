@@ -1,15 +1,17 @@
 package cz.cvut.ts1.seleniumheureka;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class AppTest extends TestCase {
 
-  @Test
-  public void shouldAnswerWithTrue() {
+  @ParameterizedTest
+  @CsvSource("ngvup3414@budgermile.rest,123456789")
+  public void shouldAnswerWithTrue(String login, String password) {
     new MainPage(getDriver())
       .acceptCookies()
       .goToLoginPage()
-      .login("login", "password") // Enter your login and password before start testing
+      .login(login, password) // Enter your login and password before start testing
       .navToLaptopsPage()
       .laptopInfo()
       .laptopPriceDescriptionOne()

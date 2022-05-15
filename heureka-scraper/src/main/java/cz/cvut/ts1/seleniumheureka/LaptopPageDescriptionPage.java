@@ -53,10 +53,6 @@ public class LaptopPageDescriptionPage extends Page {
   }
 
   public BasketPage addThirdLaptopToUserBasket() {
-    WebDriverWait driverWait = new WebDriverWait(
-      driver,
-      Duration.ofSeconds(20)
-    );
     driverWait.until(ExpectedConditions.visibilityOf(choosePlace));
     jsClick(choosePlace);
     driverWait.until(ExpectedConditions.visibilityOf(choosePrague));
