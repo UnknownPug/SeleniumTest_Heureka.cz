@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.openqa.selenium.TimeoutException;
 
 public class IndividualTests extends TestCase {
 
@@ -107,7 +108,6 @@ public class IndividualTests extends TestCase {
   public void laptopBrand(String a, String b, String c)
     throws InterruptedException {
     List<String> brands = Arrays.asList(a, b, c);
-    System.out.println(brands);
     var driver = getDriver();
     driver.get("https://notebooky.heureka.cz/");
     var pg = new LaptopsSearchPage(driver);
@@ -133,7 +133,7 @@ public class IndividualTests extends TestCase {
   }
 
   @Test
-  public void invalidLaptopBrand() throws InterruptedException {
+  public void invalidLaptopBrand() {
     var driver = getDriver();
     driver.get("https://notebooky.heureka.cz/");
     var pg = new LaptopsSearchPage(driver);
@@ -145,5 +145,71 @@ public class IndividualTests extends TestCase {
           Arrays.asList("Apple", "Huawei", "Lenovo", "Potato")
         )
     );
+  }
+
+  @ParameterizedTest
+  @CsvFileSource(resources = "/Pairwise.csv", numLinesToSkip = 1)
+  public void complexLaptopSearch(
+    int testNumber,
+    String brand,
+    int minPrice,
+    int maxPrice,
+    int reviewTier
+  )
+    throws InterruptedException {
+    System.out.println(
+      "complexLaptopSearch" +
+      testNumber +
+      ":\t" +
+      brand +
+      "\t" +
+      minPrice +
+      "\t" +
+      maxPrice +
+      "\t" +
+      reviewTier
+    );
+    var driver = getDriver();
+    driver.get("https://notebooky.heureka.cz/");
+    var pg = new LaptopsSearchPage(driver);
+    pg.acceptCookies();
+    pg
+      .selectManufacturers(Arrays.asList(brand))
+      .setPriceRange(minPrice, maxPrice)
+      .setReviewTier(reviewTier);
+
+    List<Integer> loadedRatings;
+    List<int[]> pricepairs;
+    List<String> productNames;
+    try {
+      productNames = pg.getNamesOfAllResults();
+      loadedRatings = pg.getAllRatings();
+      pricepairs = pg.getAllPriceRanges();
+    } catch (TimeoutException e) {
+      if (pg.noResultsFound()) {
+        System.out.println("No results found");
+        return;
+      }
+      throw e;
+    }
+
+    for (String productName : productNames) {
+      assertTrue(productName.contains(brand));
+    }
+
+    HashMap<Integer, Integer> ratings = new HashMap<>();
+    ratings.put(1, 95);
+    ratings.put(2, 90);
+    ratings.put(3, 80);
+    for (int rating : loadedRatings) {
+      assertTrue(rating >= ratings.get(reviewTier));
+    }
+
+    for (int[] prices : pricepairs) {
+      for (int price : prices) {
+        assertTrue(price >= minPrice);
+        assertTrue(price <= maxPrice);
+      }
+    }
   }
 }

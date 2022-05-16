@@ -45,7 +45,6 @@ public class Page {
   public Boolean isLoggedIn() throws InterruptedException {
     driverWait.until(ExpectedConditions.visibilityOf(profileLabel));
     Thread.sleep(500);
-    System.out.println("User name: " + profileLabel.getText());
     return profileLabel.getText().compareTo("Přihlásit se") != 0;
   }
 

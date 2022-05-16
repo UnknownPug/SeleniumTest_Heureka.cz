@@ -49,6 +49,12 @@ public class LaptopsSearchPage extends Page {
   )
   private WebElement reviews;
 
+  @FindBy(
+    how = How.XPATH,
+    using = "//span[text()='Vašim požadavkům neodpovídají žádné produkty.']"
+  )
+  private WebElement noResults;
+
   public LaptopsSearchPage(WebDriver driver) {
     super(driver);
   }
@@ -140,7 +146,6 @@ public class LaptopsSearchPage extends Page {
           String.format("Manufacturer %s not found", manufacturer)
         );
       }
-      System.out.println(manufacturer);
       driverWait.until(ExpectedConditions.visibilityOf(manufacturerLi));
       jsClick(manufacturerLi);
     }
@@ -150,10 +155,13 @@ public class LaptopsSearchPage extends Page {
 
   public List<int[]> getAllPriceRanges() {
     List<int[]> priceRanges = new ArrayList<>();
-    List<WebElement> priceRange = driver.findElements(
+    List<WebElement> priceRangeTexts = driver.findElements(
       By.xpath("//div[@class='c-product__price']//span")
     );
-    for (WebElement price : priceRange) {
+    if (priceRangeTexts.size() == 0) {
+      return priceRanges;
+    }
+    for (WebElement price : priceRangeTexts) {
       WebElement first = price.findElement(By.xpath(".//span[1]"));
       String firstStr = first.getText();
       firstStr = firstStr.replaceAll("[^\\d.]", "");
@@ -164,7 +172,6 @@ public class LaptopsSearchPage extends Page {
       secondStr = secondStr.replaceAll("[^\\d.]", "");
       int secondPrice = Integer.parseInt(secondStr);
 
-      System.out.println(String.format("%d - %d", firstPrice, secondPrice));
       priceRanges.add(new int[] { firstPrice, secondPrice });
     }
     return priceRanges;
@@ -177,6 +184,9 @@ public class LaptopsSearchPage extends Page {
     List<WebElement> ratingsElements = driver.findElements(
       By.xpath("//span[@class='c-star-rating__rating-value u-base']")
     );
+    if (ratingsElements.size() == 0) {
+      return ratings;
+    }
     for (WebElement rating : ratingsElements) {
       String ratingStr = rating.getAttribute("innerHTML");
 
@@ -184,7 +194,6 @@ public class LaptopsSearchPage extends Page {
       if (ratingStr.equals("")) {
         continue;
       }
-      System.out.println(ratingStr);
 
       int ratingInt = Integer.parseInt(ratingStr);
       ratings.add(ratingInt);
@@ -198,11 +207,18 @@ public class LaptopsSearchPage extends Page {
     List<WebElement> manufacturerElements = driver.findElements(
       By.xpath("//a[@class='c-product__link']")
     );
+    if (manufacturerElements.size() == 0) {
+      return manufacturers;
+    }
     for (WebElement manufacturer : manufacturerElements) {
       String ProductName = manufacturer.getText();
-      System.out.println("'" + ProductName + "'");
       manufacturers.add(ProductName);
     }
     return manufacturers;
+  }
+
+  public boolean noResultsFound() {
+    driverWait.until(ExpectedConditions.visibilityOf(noResults));
+    return noResults.isDisplayed();
   }
 }

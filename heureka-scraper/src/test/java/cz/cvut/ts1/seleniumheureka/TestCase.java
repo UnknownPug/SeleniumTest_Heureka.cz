@@ -14,7 +14,7 @@ public abstract class TestCase {
   @BeforeEach
   public void init() { // Download ChromeDriver and overwrite the path on line 18
     // System.setProperty("webdriver.chrome.driver", "/Users/dmitry1/Desktop/CVUT/4. semestr/TS1/Zdroje/ChromeDriver/chromedriver");
-    System.setProperty("webdriver.chrome.driver", "c:/path/chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "c:/path/chromedriver2.exe");
     driver = new ChromeDriver();
   }
 
