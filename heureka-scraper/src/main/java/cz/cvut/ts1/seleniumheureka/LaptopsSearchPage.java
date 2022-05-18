@@ -153,72 +153,104 @@ public class LaptopsSearchPage extends Page {
     return this;
   }
 
-  public List<int[]> getAllPriceRanges() {
-    List<int[]> priceRanges = new ArrayList<>();
-    List<WebElement> priceRangeTexts = driver.findElements(
-      By.xpath("//div[@class='c-product__price']//span")
-    );
-    if (priceRangeTexts.size() == 0) {
-      return priceRanges;
-    }
-    for (WebElement price : priceRangeTexts) {
-      WebElement first = price.findElement(By.xpath(".//span[1]"));
-      String firstStr = first.getText();
-      firstStr = firstStr.replaceAll("[^\\d.]", "");
-      int firstPrice = Integer.parseInt(firstStr);
+  @FindBy(how = How.XPATH, using = "//ul[@class='c-product-list__items']")
+  private WebElement productList;
 
-      WebElement second = price.findElement(By.xpath(".//span[3]"));
-      String secondStr = second.getText();
-      secondStr = secondStr.replaceAll("[^\\d.]", "");
-      int secondPrice = Integer.parseInt(secondStr);
+  public List<BaseLaptopData> getLaptopData() throws InterruptedException {
+    List<BaseLaptopData> data = new ArrayList<>();
 
-      priceRanges.add(new int[] { firstPrice, secondPrice });
-    }
-    return priceRanges;
-  }
-
-  public List<Integer> getAllRatings() throws InterruptedException {
-    driverWait.until(ExpectedConditions.visibilityOf(reviews));
     Thread.sleep(1000);
-    List<Integer> ratings = new ArrayList<>();
-    List<WebElement> ratingsElements = driver.findElements(
-      By.xpath("//span[@class='c-star-rating__rating-value u-base']")
-    );
-    if (ratingsElements.size() == 0) {
-      return ratings;
-    }
-    for (WebElement rating : ratingsElements) {
-      String ratingStr = rating.getAttribute("innerHTML");
 
-      ratingStr = ratingStr.replaceAll("[^0-9.]", "");
-      if (ratingStr.equals("")) {
-        continue;
+    if (noResultsFound()) {
+      return null;
+    }
+
+    List<WebElement> laptops = productList.findElements(
+      By.xpath(".//li//section")
+    );
+
+    for (WebElement laptop : laptops) {
+      driverWait.until(ExpectedConditions.visibilityOf(laptop));
+
+      String url = laptop
+        .findElement(By.xpath(".//a[@class='c-product__overlay-link']"))
+        .getAttribute("href");
+
+      String name = laptop
+        .findElement(By.xpath(".//a[@class='c-product__overlay-link']"))
+        .getText();
+
+      WebElement price = laptop.findElement(
+        By.xpath(
+          ".//div[@class='c-product__container']" +
+          "//div" +
+          "//div[@class='c-product__actions o-block-list']" +
+          "//div" +
+          "//a[@class='c-product__price']"
+        )
+      );
+      String priceText = price.getText();
+      Integer minPrice, maxPrice;
+      if (priceText.contains("–")) {
+        var prices = priceText.split("–");
+        minPrice = Integer.parseInt(prices[0].replaceAll("[^\\d.]", ""));
+        maxPrice = Integer.parseInt(prices[1].replaceAll("[^\\d.]", ""));
+      } else {
+        minPrice = Integer.parseInt(priceText.replaceAll("[^\\d.]", ""));
+        maxPrice = null;
       }
 
-      int ratingInt = Integer.parseInt(ratingStr);
-      ratings.add(ratingInt);
-    }
-    return ratings;
-  }
+      var rating = laptop.findElements(
+        By.xpath(
+          ".//div[@class='c-product__container']" +
+          "//div" +
+          "//div[@class='c-product__content']" +
+          "//ul[@class='c-product__stats c-pipe-list is-available']" +
+          "//li" +
+          "//div" +
+          "//a[@class='c-star-rating__rating c-product__rating c-product__link']" +
+          "//span[@class='c-star-rating__rating-value u-base']"
+        )
+      );
+      Integer ratingValue;
+      if (rating.size() == 0) {
+        ratingValue = null;
+      } else {
+        ratingValue =
+          Integer.parseInt(rating.get(0).getText().replaceAll("[^\\d.]", ""));
+      }
+      var newData = new BaseLaptopData(
+        name,
+        ratingValue,
+        minPrice,
+        maxPrice,
+        url
+      );
 
-  public List<String> getNamesOfAllResults() throws InterruptedException {
-    List<String> manufacturers = new ArrayList<>();
-    Thread.sleep(1000);
-    List<WebElement> manufacturerElements = driver.findElements(
-      By.xpath("//a[@class='c-product__link']")
-    );
-    if (manufacturerElements.size() == 0) {
-      return manufacturers;
+      if (!data.contains(newData)) {
+        data.add(newData);
+      }
     }
-    for (WebElement manufacturer : manufacturerElements) {
-      String ProductName = manufacturer.getText();
-      manufacturers.add(ProductName);
-    }
-    return manufacturers;
+
+    return data;
   }
 
   public boolean noResultsFound() {
-    driverWait.until(ExpectedConditions.visibilityOf(noResults));
-    return noResults.isDisplayed();
+    driverWait.until(
+      ExpectedConditions.or(
+        ExpectedConditions.visibilityOf(productList),
+        ExpectedConditions.visibilityOf(noResults)
+      )
+    );
+    return (
+      driver
+        .findElements(
+          By.xpath(
+            "//span[text()='Vašim požadavkům neodpovídají žádné produkty.']"
+          )
+        )
+        .size() ==
+      1
+    );
   }
 }

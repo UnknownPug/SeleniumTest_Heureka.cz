@@ -52,7 +52,7 @@ public class IndividualTests extends TestCase {
 
   @ParameterizedTest
   @CsvSource({ "10000,30000", "25000,20000", "60000,70000" })
-  public void laptopPrice(int min, int max) {
+  public void laptopPrice(int min, int max) throws InterruptedException {
     if (min > max) {
       int tmp = min;
       min = max;
@@ -61,27 +61,31 @@ public class IndividualTests extends TestCase {
     var driver = getDriver();
     driver.get("https://notebooky.heureka.cz/");
     var pg = new LaptopsSearchPage(driver);
-    pg.setPriceRange(min, max); //.setReviewTier(1).requireAvailability();
-    List<int[]> pricepairs = pg.getAllPriceRanges();
-    for (int[] prices : pricepairs) {
-      for (int price : prices) {
-        assertTrue(price >= min);
-        assertTrue(price <= max);
+    pg.acceptCookies();
+    pg.setPriceRange(min, max);
+    List<BaseLaptopData> laptops = pg.getLaptopData();
+    for (BaseLaptopData laptop : laptops) {
+      if (laptop.minPrice() != null) {
+        assertTrue(laptop.minPrice() >= min, laptop.minPrice() + " < " + min);
+      }
+      if (laptop.maxPrice() != null) {
+        assertTrue(laptop.minPrice() <= max, laptop.minPrice() + " > " + max);
       }
     }
   }
 
   @ParameterizedTest
   @CsvSource({ "30000", "20000", "70000" })
-  public void laptopPriceNoMin(int max) {
+  public void laptopPriceNoMin(int max) throws InterruptedException {
     var driver = getDriver();
     driver.get("https://notebooky.heureka.cz/");
     var pg = new LaptopsSearchPage(driver);
+    pg.acceptCookies();
     pg.setPriceRange(null, max); //.setReviewTier(1).requireAvailability();
-    List<int[]> pricepairs = pg.getAllPriceRanges();
-    for (int[] prices : pricepairs) {
-      for (int price : prices) {
-        assertTrue(price <= max);
+    List<BaseLaptopData> laptops = pg.getLaptopData();
+    for (BaseLaptopData laptop : laptops) {
+      if (laptop.maxPrice() != null) {
+        assertTrue(laptop.minPrice() <= max, laptop.minPrice() + " > " + max);
       }
     }
   }
@@ -96,10 +100,15 @@ public class IndividualTests extends TestCase {
     var driver = getDriver();
     driver.get("https://notebooky.heureka.cz/");
     var pg = new LaptopsSearchPage(driver);
+    pg.acceptCookies();
+
     pg.setReviewTier(tier);
-    List<Integer> loadedRatings = pg.getAllRatings();
-    for (int rating : loadedRatings) {
-      assertTrue(rating >= ratings.get(tier));
+    List<BaseLaptopData> laptops = pg.getLaptopData();
+    for (BaseLaptopData laptop : laptops) {
+      assertTrue(
+        laptop.ratings() >= ratings.get(tier),
+        laptop.ratings() + " < " + ratings.get(tier)
+      );
     }
   }
 
@@ -113,11 +122,11 @@ public class IndividualTests extends TestCase {
     var pg = new LaptopsSearchPage(driver);
     pg.acceptCookies();
     pg.selectManufacturers(brands);
-    List<String> productNames = pg.getNamesOfAllResults();
-    for (String productName : productNames) {
+    List<BaseLaptopData> laptops = pg.getLaptopData();
+    for (BaseLaptopData laptop : laptops) {
       boolean found = false;
       for (String brand : brands) {
-        if (productName.contains(brand)) {
+        if (laptop.Name().contains(brand)) {
           found = true;
           break;
         }
@@ -125,7 +134,7 @@ public class IndividualTests extends TestCase {
       assertTrue(
         found,
         "Product name " +
-        productName +
+        laptop.Name() +
         " does not contain any of the brands: " +
         brands
       );
@@ -169,6 +178,7 @@ public class IndividualTests extends TestCase {
       "\t" +
       reviewTier
     );
+
     var driver = getDriver();
     driver.get("https://notebooky.heureka.cz/");
     var pg = new LaptopsSearchPage(driver);
@@ -178,37 +188,34 @@ public class IndividualTests extends TestCase {
       .setPriceRange(minPrice, maxPrice)
       .setReviewTier(reviewTier);
 
-    List<Integer> loadedRatings;
-    List<int[]> pricepairs;
-    List<String> productNames;
-    try {
-      productNames = pg.getNamesOfAllResults();
-      loadedRatings = pg.getAllRatings();
-      pricepairs = pg.getAllPriceRanges();
-    } catch (TimeoutException e) {
-      if (pg.noResultsFound()) {
-        System.out.println("No results found");
-        return;
-      }
-      throw e;
+    List<BaseLaptopData> laptops;
+    laptops = pg.getLaptopData();
+    if (laptops == null) {
+      System.out.println("no results");
+      return;
     }
-
-    for (String productName : productNames) {
-      assertTrue(productName.contains(brand));
-    }
-
     HashMap<Integer, Integer> ratings = new HashMap<>();
     ratings.put(1, 95);
     ratings.put(2, 90);
     ratings.put(3, 80);
-    for (int rating : loadedRatings) {
-      assertTrue(rating >= ratings.get(reviewTier));
+
+    if (minPrice > maxPrice) {
+      int tmp = minPrice;
+      minPrice = maxPrice;
+      maxPrice = tmp;
     }
 
-    for (int[] prices : pricepairs) {
-      for (int price : prices) {
-        assertTrue(price >= minPrice);
-        assertTrue(price <= maxPrice);
+    for (BaseLaptopData laptop : laptops) {
+      System.out.println(laptop);
+      assertTrue(laptop.Name().contains(brand));
+      if (laptop.minPrice() != null) {
+        assertTrue(laptop.minPrice() >= minPrice);
+      }
+      if (laptop.maxPrice() != null) {
+        assertTrue(laptop.minPrice() <= maxPrice);
+      }
+      if (laptop.ratings() != null) {
+        assertTrue(laptop.ratings() >= ratings.get(reviewTier));
       }
     }
   }
