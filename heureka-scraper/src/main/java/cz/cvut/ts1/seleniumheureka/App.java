@@ -17,7 +17,8 @@ public class App {
     System.out.print("Please enter your login password: ");
     String password = System.console().readLine();
 
-    System.setProperty("webdriver.chrome.driver", "c:/path/chromedriver2.exe");
+    System.setProperty(Consts.DRIVER_TYPE, Consts.DRIVER_LOCATIONS);
+
     WebDriver driver = new ChromeDriver();
 
     MainPage mainPage = new MainPage(driver);

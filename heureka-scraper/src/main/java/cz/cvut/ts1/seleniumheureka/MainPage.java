@@ -16,7 +16,7 @@ public class MainPage extends Page {
 
   public MainPage(WebDriver driver) {
     super(driver);
-    driver.get("https://www.heureka.cz/");
+    driver.get(Consts.BASE_URL);
   }
 
   public LoginPage goToLoginPage() {
