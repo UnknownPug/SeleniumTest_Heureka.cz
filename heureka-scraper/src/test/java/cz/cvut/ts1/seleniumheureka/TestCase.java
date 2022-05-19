@@ -6,11 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class TestCase {
+
   private WebDriver driver;
 
   @BeforeEach
   public void init() { // Download ChromeDriver and overwrite the path on line 18
-    System.setProperty(Consts.DRIVER_TYPE, Consts.DRIVER_MAC_LOCATIONS);
+    System.setProperty(Consts.DRIVER_TYPE, Consts.DRIVER_LOCATIONS);
     driver = new ChromeDriver();
   }
 

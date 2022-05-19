@@ -1,16 +1,17 @@
 package cz.cvut.ts1.seleniumheureka;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class App {
-  static Scanner input;
+
   public static void main(String[] args) throws InterruptedException {
-    input = new Scanner(System.in);
+    var in = System.in;
+    Scanner input = new Scanner(System.in);
     System.out.println(
       "Welcome to the heureka notebook browser (crappy edition)!"
     );
@@ -20,7 +21,7 @@ public class App {
     System.out.print("Please enter your login password: ");
     String password = input.nextLine();
 
-    System.setProperty(Consts.DRIVER_TYPE, Consts.DRIVER_MAC_LOCATIONS);
+    System.setProperty(Consts.DRIVER_TYPE, Consts.DRIVER_LOCATIONS);
 
     WebDriver driver = new ChromeDriver();
 
@@ -32,17 +33,22 @@ public class App {
 
     LaptopsSearchPage lsp = ump.navToLaptopsPage();
 
-    Integer minPrice = getMinPrice();
-    Integer maxPrice = getMaxPrice(minPrice);
+    Integer minPrice = getMinPrice(in);
+    Integer maxPrice;
+    if (minPrice == null) {
+      maxPrice = getMaxPrice(0, in);
+    } else {
+      maxPrice = getMaxPrice(minPrice, in);
+    }
 
     lsp.setPriceRange(minPrice, maxPrice);
 
-    Integer reviewTier = getReviewTier();
+    Integer reviewTier = getReviewTier(in);
     if (reviewTier != null) {
       lsp.setReviewTier(reviewTier);
     }
 
-    boolean inStock = getInStock();
+    boolean inStock = getInStock(in);
     if (inStock) {
       lsp.requireAvailability();
     }
@@ -56,7 +62,7 @@ public class App {
       System.exit(0);
     }
 
-    int numberOfLaptops = howManyLaptopsToShow(laptops.size());
+    int numberOfLaptops = howManyLaptopsToShow(laptops.size(), in);
 
     for (int i = 0; i < numberOfLaptops; i++) {
       System.out.println(laptops.get(i).toString());
@@ -64,7 +70,8 @@ public class App {
     input.close();
   }
 
-  private static int howManyLaptopsToShow(int nOfFoundLaptops) {
+  private static int howManyLaptopsToShow(int nOfFoundLaptops, InputStream in) {
+    Scanner input = new Scanner(in);
     System.out.print(
       "How many laptops do you want to see? (1-" + nOfFoundLaptops + "): "
     );
@@ -72,6 +79,7 @@ public class App {
       String numberOfLaptopsString = input.nextLine();
       int numberOfLaptopsInt = Integer.parseInt(numberOfLaptopsString);
       if (numberOfLaptopsInt > 0 && numberOfLaptopsInt <= nOfFoundLaptops) {
+        input.close();
         return numberOfLaptopsInt;
       } else {
         System.out.println(
@@ -81,14 +89,17 @@ public class App {
     } while (true);
   }
 
-  private static boolean getInStock() {
+  private static boolean getInStock(InputStream in) {
+    Scanner input = new Scanner(in);
     System.out.println("Does the laptop need to be in stock? (y/n)");
 
     while (true) {
       String answer = input.nextLine();
       if (answer.equals("y")) {
+        input.close();
         return true;
       } else if (answer.equals("n")) {
+        input.close();
         return false;
       } else {
         System.out.println("Please enter y or n");
@@ -96,7 +107,8 @@ public class App {
     }
   }
 
-  private static Integer getReviewTier() {
+  public static Integer getReviewTier(InputStream in) {
+    Scanner input = new Scanner(in);
     System.out.println(
       "Please enter the review tier you want to search for (or leave blank if it doesn't matter):"
     );
@@ -107,6 +119,7 @@ public class App {
     do {
       String read = input.nextLine();
       if (read.isEmpty()) {
+        input.close();
         return null;
       }
       try {
@@ -114,6 +127,7 @@ public class App {
         if (num < 1 || num > 3) {
           System.out.println("Please enter either 1, 2 or 3");
         } else {
+          input.close();
           return num;
         }
       } catch (NumberFormatException e) {
@@ -122,13 +136,15 @@ public class App {
     } while (true);
   }
 
-  private static Integer getMinPrice() {
+  public static Integer getMinPrice(InputStream in) {
+    Scanner input = new Scanner(in);
     System.out.println(
       "Please enter the minimum price [leave blank if it doesn't matter]:"
     );
     do {
       String min = input.nextLine();
       if (min.isEmpty()) {
+        input.close();
         return null;
       }
       int minVal;
@@ -142,17 +158,20 @@ public class App {
         System.out.println("Please enter a positive number!");
         continue;
       }
+      input.close();
       return minVal;
     } while (true);
   }
 
-  private static Integer getMaxPrice(int minval) {
+  public static Integer getMaxPrice(int minval, InputStream in) {
+    Scanner input = new Scanner(in);
     System.out.println(
       "Please enter the maximum price [leave blank if it doesn't matter]:"
     );
     do {
       String max = input.nextLine();
       if (max.isEmpty()) {
+        input.close();
         return null;
       }
       int maxVal;
@@ -168,6 +187,7 @@ public class App {
         );
         continue;
       }
+      input.close();
       return maxVal;
     } while (true);
   }
