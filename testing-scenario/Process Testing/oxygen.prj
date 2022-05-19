@@ -1,0 +1,1302 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project description="" id="1" linkage="" name="New project 1" version="">
+    <graphs>
+        <graph description="" id="5" linkage="" name="New directed graph 1" type="ORIENTED_GRAPH" version="">
+            <node description="" height="40.0" id="2" name="A" priority="" style="STYLE_NODE" width="40.0" xpos="140.0" ypos="160.0"/>
+            <edge description="" id="8" name="2" priority="" source="2" target="3"/>
+            <edge description="" id="10" name="4" priority="" source="2" target="6"/>
+            <edge description="" id="11" name="5" priority="" source="2" target="7"/>
+            <edge description="" id="16" name="6" priority="" source="2" target="15"/>
+            <node description="" height="40.0" id="3" name="B" priority="" style="STYLE_NODE" width="40.0" xpos="40.0" ypos="230.0"/>
+            <edge description="" id="9" name="3" priority="" source="3" target="2"/>
+            <node description="" height="25.0" id="4" name="START" priority="" style="STYLE_START" width="70.0" xpos="90.0" ypos="30.0"/>
+            <edge description="" id="5" name="1" priority="" source="4" target="2"/>
+            <node description="" height="40.0" id="6" name="C" priority="" style="STYLE_NODE" width="40.0" xpos="150.0" ypos="400.0"/>
+            <edge description="" id="18" name="7" priority="" source="6" target="17"/>
+            <edge description="" id="21" name="9" priority="" source="6" target="20"/>
+            <edge description="" id="24" name="11" priority="" source="6" target="23"/>
+            <edge description="" id="40" name="13" priority="" source="6" target="26"/>
+            <edge description="" id="42" name="15" priority="" source="6" target="38"/>
+            <node description="" height="40.0" id="7" name="D" priority="" style="STYLE_NODE" width="40.0" xpos="250.0" ypos="210.0"/>
+            <node description="" height="40.0" id="15" name="O" priority="(not defined)" style="STYLE_NODE" width="40.0" xpos="430.0" ypos="170.0"/>
+            <edge description="" id="50" name="23" priority="" source="15" target="33"/>
+            <edge description="" id="51" name="24" priority="" source="15" target="34"/>
+            <node description="" height="40.0" id="17" name="E" priority="(not defined)" style="STYLE_NODE" width="40.0" xpos="40.0" ypos="360.0"/>
+            <edge description="" id="19" name="8" priority="" source="17" target="6"/>
+            <node description="" height="40.0" id="20" name="F" priority="(not defined)" style="STYLE_NODE" width="40.0" xpos="50.0" ypos="460.0"/>
+            <edge description="" id="22" name="10" priority="" source="20" target="6"/>
+            <node description="" height="40.0" id="23" name="G" priority="(not defined)" style="STYLE_NODE" width="40.0" xpos="130.0" ypos="520.0"/>
+            <edge description="" id="25" name="12" priority="" source="23" target="6"/>
+            <node description="" height="40.0" id="26" name="H" priority="(not defined)" style="STYLE_NODE" width="40.0" xpos="220.0" ypos="530.0"/>
+            <edge description="" id="41" name="14" priority="" source="26" target="6"/>
+            <node description="" height="40.0" id="27" name="I" priority="(not defined)" style="STYLE_NODE" width="40.0" xpos="260.0" ypos="620.0"/>
+            <edge description="" id="44" name="17" priority="" source="27" target="38"/>
+            <node description="" height="40.0" id="28" name="K" priority="" style="STYLE_NODE" width="40.0" xpos="360.0" ypos="630.0"/>
+            <edge description="" id="46" name="19" priority="" source="28" target="38"/>
+            <node description="" height="40.0" id="29" name="L" priority="" style="STYLE_NODE" width="40.0" xpos="460.0" ypos="620.0"/>
+            <edge description="" id="48" name="21" priority="" source="29" target="30"/>
+            <node description="" height="40.0" id="30" name="M" priority="" style="STYLE_NODE" width="40.0" xpos="460.0" ypos="730.0"/>
+            <edge description="" id="49" name="22" priority="" source="30" target="31"/>
+            <node description="" height="40.0" id="31" name="N" priority="" style="STYLE_NODE" width="40.0" xpos="460.0" ypos="850.0"/>
+            <node description="" height="40.0" id="33" name="P" priority="" style="STYLE_NODE" width="40.0" xpos="570.0" ypos="110.0"/>
+            <node description="" height="40.0" id="34" name="Q" priority="" style="STYLE_NODE" width="40.0" xpos="450.0" ypos="290.0"/>
+            <edge description="" id="52" name="25" priority="" source="34" target="35"/>
+            <edge description="" id="54" name="27" priority="" source="34" target="36"/>
+            <edge description="" id="55" name="28" priority="" source="34" target="36"/>
+            <edge description="" id="56" name="29" priority="" source="34" target="37"/>
+            <node description="" height="40.0" id="35" name="R" priority="" style="STYLE_NODE" width="40.0" xpos="340.0" ypos="380.0"/>
+            <edge description="" id="53" name="26" priority="" source="35" target="34"/>
+            <node description="" height="40.0" id="36" name="S" priority="" style="STYLE_NODE" width="40.0" xpos="430.0" ypos="390.0"/>
+            <node description="" height="40.0" id="37" name="T" priority="" style="STYLE_NODE" width="40.0" xpos="530.0" ypos="410.0"/>
+            <edge description="" id="57" name="30" priority="" source="37" target="39"/>
+            <node description="" height="40.0" id="38" name="I&#10;" priority="(not defined)" style="STYLE_NODE" width="40.0" xpos="330.0" ypos="490.0"/>
+            <edge description="" id="43" name="16" priority="" source="38" target="27"/>
+            <edge description="" id="45" name="18" priority="" source="38" target="28"/>
+            <edge description="" id="47" name="20" priority="" source="38" target="29"/>
+            <node description="" height="40.0" id="39" name="U" priority="(not defined)" style="STYLE_NODE" width="40.0" xpos="610.0" ypos="480.0"/>
+            <edge description="" id="58" name="31" priority="" source="39" target="15"/>
+            <test_case changed="false" combinations_data_rows="17" graph_id="5" name="Test situations 1, TDL= 2, ALG= PCT." note="" test_situations_data_rows="14">
+                <combinations_data_value col="0" selected_row="0">O</combinations_data_value>
+                <combinations_data_value col="1" selected_row="0">6 - 23
+6 - 24
+31 - 23
+31 - 24
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="1">G</combinations_data_value>
+                <combinations_data_value col="1" selected_row="1">11 - 12
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="2">H</combinations_data_value>
+                <combinations_data_value col="1" selected_row="2">13 - 14
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="3">A</combinations_data_value>
+                <combinations_data_value col="1" selected_row="3">3 - 2
+3 - 4
+3 - 5
+3 - 6
+1 - 2
+1 - 4
+1 - 5
+1 - 6
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="4">Q</combinations_data_value>
+                <combinations_data_value col="1" selected_row="4">24 - 25
+24 - 27
+24 - 28
+24 - 29
+26 - 25
+26 - 27
+26 - 28
+26 - 29
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="5">I</combinations_data_value>
+                <combinations_data_value col="1" selected_row="5">16 - 17
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="6">E</combinations_data_value>
+                <combinations_data_value col="1" selected_row="6">7 - 8
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="7">B</combinations_data_value>
+                <combinations_data_value col="1" selected_row="7">2 - 3
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="8">M</combinations_data_value>
+                <combinations_data_value col="1" selected_row="8">21 - 22
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="9">T</combinations_data_value>
+                <combinations_data_value col="1" selected_row="9">29 - 30
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="10">K</combinations_data_value>
+                <combinations_data_value col="1" selected_row="10">18 - 19
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="11">I
+</combinations_data_value>
+                <combinations_data_value col="1" selected_row="11">15 - 16
+15 - 18
+15 - 20
+17 - 16
+17 - 18
+17 - 20
+19 - 16
+19 - 18
+19 - 20
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="12">C</combinations_data_value>
+                <combinations_data_value col="1" selected_row="12">4 - 7
+4 - 9
+4 - 11
+4 - 13
+4 - 15
+8 - 7
+8 - 9
+8 - 11
+8 - 13
+8 - 15
+10 - 7
+10 - 9
+10 - 11
+10 - 13
+10 - 15
+12 - 7
+12 - 9
+12 - 11
+12 - 13
+12 - 15
+14 - 7
+14 - 9
+14 - 11
+14 - 13
+14 - 15
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="13">L</combinations_data_value>
+                <combinations_data_value col="1" selected_row="13">20 - 21
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="14">F</combinations_data_value>
+                <combinations_data_value col="1" selected_row="14">9 - 10
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="15">U</combinations_data_value>
+                <combinations_data_value col="1" selected_row="15">30 - 31
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="16">R</combinations_data_value>
+                <combinations_data_value col="1" selected_row="16">25 - 26
+</combinations_data_value>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="11" name="5"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="11" name="5"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="54" name="27"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="55" name="28"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="54" name="27"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="55" name="28"/>
+                </test_situation_row>
+            </test_case>
+            <test_case changed="false" combinations_data_rows="16" graph_id="5" name="Test situations 2, TDL= 3, ALG= PCT." note="" test_situations_data_rows="27">
+                <combinations_data_value col="0" selected_row="0">O</combinations_data_value>
+                <combinations_data_value col="1" selected_row="0">6 - 24 - 25
+6 - 24 - 27
+6 - 24 - 28
+6 - 24 - 29
+31 - 24 - 25
+31 - 24 - 27
+31 - 24 - 28
+31 - 24 - 29
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="1">G</combinations_data_value>
+                <combinations_data_value col="1" selected_row="1">11 - 12 - 7
+11 - 12 - 9
+11 - 12 - 11
+11 - 12 - 13
+11 - 12 - 15
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="2">H</combinations_data_value>
+                <combinations_data_value col="1" selected_row="2">13 - 14 - 7
+13 - 14 - 9
+13 - 14 - 11
+13 - 14 - 13
+13 - 14 - 15
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="3">A</combinations_data_value>
+                <combinations_data_value col="1" selected_row="3">3 - 2 - 3
+3 - 4 - 7
+3 - 4 - 9
+3 - 4 - 11
+3 - 4 - 13
+3 - 4 - 15
+3 - 6 - 23
+3 - 6 - 24
+1 - 2 - 3
+1 - 4 - 7
+1 - 4 - 9
+1 - 4 - 11
+1 - 4 - 13
+1 - 4 - 15
+1 - 6 - 23
+1 - 6 - 24
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="4">Q</combinations_data_value>
+                <combinations_data_value col="1" selected_row="4">24 - 25 - 26
+24 - 29 - 30
+26 - 25 - 26
+26 - 29 - 30
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="5">I</combinations_data_value>
+                <combinations_data_value col="1" selected_row="5">16 - 17 - 16
+16 - 17 - 18
+16 - 17 - 20
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="6">E</combinations_data_value>
+                <combinations_data_value col="1" selected_row="6">7 - 8 - 7
+7 - 8 - 9
+7 - 8 - 11
+7 - 8 - 13
+7 - 8 - 15
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="7">B</combinations_data_value>
+                <combinations_data_value col="1" selected_row="7">2 - 3 - 2
+2 - 3 - 4
+2 - 3 - 5
+2 - 3 - 6
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="8">T</combinations_data_value>
+                <combinations_data_value col="1" selected_row="8">29 - 30 - 31
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="9">K</combinations_data_value>
+                <combinations_data_value col="1" selected_row="9">18 - 19 - 16
+18 - 19 - 18
+18 - 19 - 20
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="10">I
+</combinations_data_value>
+                <combinations_data_value col="1" selected_row="10">15 - 16 - 17
+15 - 18 - 19
+15 - 20 - 21
+17 - 16 - 17
+17 - 18 - 19
+17 - 20 - 21
+19 - 16 - 17
+19 - 18 - 19
+19 - 20 - 21
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="11">C</combinations_data_value>
+                <combinations_data_value col="1" selected_row="11">4 - 7 - 8
+4 - 9 - 10
+4 - 11 - 12
+4 - 13 - 14
+4 - 15 - 16
+4 - 15 - 18
+4 - 15 - 20
+8 - 7 - 8
+8 - 9 - 10
+8 - 11 - 12
+8 - 13 - 14
+8 - 15 - 16
+8 - 15 - 18
+8 - 15 - 20
+10 - 7 - 8
+10 - 9 - 10
+10 - 11 - 12
+10 - 13 - 14
+10 - 15 - 16
+10 - 15 - 18
+10 - 15 - 20
+12 - 7 - 8
+12 - 9 - 10
+12 - 11 - 12
+12 - 13 - 14
+12 - 15 - 16
+12 - 15 - 18
+12 - 15 - 20
+14 - 7 - 8
+14 - 9 - 10
+14 - 11 - 12
+14 - 13 - 14
+14 - 15 - 16
+14 - 15 - 18
+14 - 15 - 20
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="12">L</combinations_data_value>
+                <combinations_data_value col="1" selected_row="12">20 - 21 - 22
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="13">F</combinations_data_value>
+                <combinations_data_value col="1" selected_row="13">9 - 10 - 7
+9 - 10 - 9
+9 - 10 - 11
+9 - 10 - 13
+9 - 10 - 15
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="14">U</combinations_data_value>
+                <combinations_data_value col="1" selected_row="14">30 - 31 - 23
+30 - 31 - 24
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="15">R</combinations_data_value>
+                <combinations_data_value col="1" selected_row="15">25 - 26 - 25
+25 - 26 - 27
+25 - 26 - 28
+25 - 26 - 29
+</combinations_data_value>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="11" name="5"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="54" name="27"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="55" name="28"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="54" name="27"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="55" name="28"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="54" name="27"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="55" name="28"/>
+                </test_situation_row>
+            </test_case>
+            <test_case changed="false" combinations_data_rows="21" graph_id="5" name="Test situations 3, TDL= 1, ALG= PCT." note="" test_situations_data_rows="7">
+                <combinations_data_value col="0" selected_row="0">O</combinations_data_value>
+                <combinations_data_value col="1" selected_row="0">6
+31
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="1">G</combinations_data_value>
+                <combinations_data_value col="1" selected_row="1">11
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="2">D</combinations_data_value>
+                <combinations_data_value col="1" selected_row="2">5
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="3">H</combinations_data_value>
+                <combinations_data_value col="1" selected_row="3">13
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="4">A</combinations_data_value>
+                <combinations_data_value col="1" selected_row="4">3
+1
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="5">Q</combinations_data_value>
+                <combinations_data_value col="1" selected_row="5">24
+26
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="6">I</combinations_data_value>
+                <combinations_data_value col="1" selected_row="6">16
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="7">E</combinations_data_value>
+                <combinations_data_value col="1" selected_row="7">7
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="8">B</combinations_data_value>
+                <combinations_data_value col="1" selected_row="8">2
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="9">M</combinations_data_value>
+                <combinations_data_value col="1" selected_row="9">21
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="10">S</combinations_data_value>
+                <combinations_data_value col="1" selected_row="10">27
+28
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="11">T</combinations_data_value>
+                <combinations_data_value col="1" selected_row="11">29
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="12">K</combinations_data_value>
+                <combinations_data_value col="1" selected_row="12">18
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="13">I
+</combinations_data_value>
+                <combinations_data_value col="1" selected_row="13">15
+17
+19
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="14">C</combinations_data_value>
+                <combinations_data_value col="1" selected_row="14">4
+8
+10
+12
+14
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="15">L</combinations_data_value>
+                <combinations_data_value col="1" selected_row="15">20
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="16">P</combinations_data_value>
+                <combinations_data_value col="1" selected_row="16">23
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="17">F</combinations_data_value>
+                <combinations_data_value col="1" selected_row="17">9
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="18">U</combinations_data_value>
+                <combinations_data_value col="1" selected_row="18">30
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="19">N</combinations_data_value>
+                <combinations_data_value col="1" selected_row="19">22
+</combinations_data_value>
+                <combinations_data_value col="0" selected_row="20">R</combinations_data_value>
+                <combinations_data_value col="1" selected_row="20">25
+</combinations_data_value>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="11" name="5"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="10" name="4"/>
+                    <value edge_id="18" name="7"/>
+                    <value edge_id="19" name="8"/>
+                    <value edge_id="21" name="9"/>
+                    <value edge_id="22" name="10"/>
+                    <value edge_id="24" name="11"/>
+                    <value edge_id="25" name="12"/>
+                    <value edge_id="40" name="13"/>
+                    <value edge_id="41" name="14"/>
+                    <value edge_id="42" name="15"/>
+                    <value edge_id="43" name="16"/>
+                    <value edge_id="44" name="17"/>
+                    <value edge_id="45" name="18"/>
+                    <value edge_id="46" name="19"/>
+                    <value edge_id="47" name="20"/>
+                    <value edge_id="48" name="21"/>
+                    <value edge_id="49" name="22"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="52" name="25"/>
+                    <value edge_id="53" name="26"/>
+                    <value edge_id="56" name="29"/>
+                    <value edge_id="57" name="30"/>
+                    <value edge_id="58" name="31"/>
+                    <value edge_id="50" name="23"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="54" name="27"/>
+                </test_situation_row>
+                <test_situation_row>
+                    <value edge_id="5" name="1"/>
+                    <value edge_id="8" name="2"/>
+                    <value edge_id="9" name="3"/>
+                    <value edge_id="16" name="6"/>
+                    <value edge_id="51" name="24"/>
+                    <value edge_id="55" name="28"/>
+                </test_situation_row>
+            </test_case>
+        </graph>
+        <graph description="" id="7" linkage="" name="New activity diagram 1" type="ACTIVITY_DIAGRAM" version=""/>
+    </graphs>
+    <crud linkage="" version="">
+        <description/>
+        <entities>
+            <entity entity_id="E0">
+                <name>E1</name>
+                <description/>
+                <attributes/>
+            </entity>
+            <entity entity_id="E1">
+                <name>E2</name>
+                <description/>
+                <attributes/>
+            </entity>
+            <entity entity_id="E2">
+                <name>E3</name>
+                <description/>
+                <attributes/>
+            </entity>
+        </entities>
+        <functions>
+            <function function_id="F0">
+                <name>F1</name>
+                <description/>
+            </function>
+            <function function_id="F1">
+                <name>F2</name>
+                <description/>
+            </function>
+            <function function_id="F2">
+                <name>F3</name>
+                <description/>
+            </function>
+        </functions>
+        <actions>
+            <action entity_id_ref="E0" function_id_ref="F0">
+                <create imns="false" is_set="false">
+                    <touched_attributes/>
+                </create>
+                <read imns="false" is_set="false">
+                    <touched_attributes/>
+                </read>
+                <update imns="false" is_set="false">
+                    <touched_attributes/>
+                </update>
+                <delete imns="false" is_set="false">
+                    <touched_attributes/>
+                </delete>
+                <best_read imns="false" is_set="false"/>
+                <influences>
+                    <influence entity_id_ref="E1" imns="false" is_set="false"/>
+                    <influence entity_id_ref="E2" imns="false" is_set="false"/>
+                </influences>
+            </action>
+            <action entity_id_ref="E1" function_id_ref="F0">
+                <create imns="false" is_set="false">
+                    <touched_attributes/>
+                </create>
+                <read imns="false" is_set="false">
+                    <touched_attributes/>
+                </read>
+                <update imns="false" is_set="false">
+                    <touched_attributes/>
+                </update>
+                <delete imns="false" is_set="false">
+                    <touched_attributes/>
+                </delete>
+                <best_read imns="false" is_set="false"/>
+                <influences>
+                    <influence entity_id_ref="E0" imns="false" is_set="false"/>
+                    <influence entity_id_ref="E2" imns="false" is_set="false"/>
+                </influences>
+            </action>
+            <action entity_id_ref="E2" function_id_ref="F0">
+                <create imns="false" is_set="false">
+                    <touched_attributes/>
+                </create>
+                <read imns="false" is_set="false">
+                    <touched_attributes/>
+                </read>
+                <update imns="false" is_set="false">
+                    <touched_attributes/>
+                </update>
+                <delete imns="false" is_set="false">
+                    <touched_attributes/>
+                </delete>
+                <best_read imns="false" is_set="false"/>
+                <influences>
+                    <influence entity_id_ref="E0" imns="false" is_set="false"/>
+                    <influence entity_id_ref="E1" imns="false" is_set="false"/>
+                </influences>
+            </action>
+            <action entity_id_ref="E0" function_id_ref="F1">
+                <create imns="false" is_set="false">
+                    <touched_attributes/>
+                </create>
+                <read imns="false" is_set="false">
+                    <touched_attributes/>
+                </read>
+                <update imns="false" is_set="false">
+                    <touched_attributes/>
+                </update>
+                <delete imns="false" is_set="false">
+                    <touched_attributes/>
+                </delete>
+                <best_read imns="false" is_set="false"/>
+                <influences>
+                    <influence entity_id_ref="E1" imns="false" is_set="false"/>
+                    <influence entity_id_ref="E2" imns="false" is_set="false"/>
+                </influences>
+            </action>
+            <action entity_id_ref="E1" function_id_ref="F1">
+                <create imns="false" is_set="false">
+                    <touched_attributes/>
+                </create>
+                <read imns="false" is_set="false">
+                    <touched_attributes/>
+                </read>
+                <update imns="false" is_set="false">
+                    <touched_attributes/>
+                </update>
+                <delete imns="false" is_set="false">
+                    <touched_attributes/>
+                </delete>
+                <best_read imns="false" is_set="false"/>
+                <influences>
+                    <influence entity_id_ref="E0" imns="false" is_set="false"/>
+                    <influence entity_id_ref="E2" imns="false" is_set="false"/>
+                </influences>
+            </action>
+            <action entity_id_ref="E2" function_id_ref="F1">
+                <create imns="false" is_set="false">
+                    <touched_attributes/>
+                </create>
+                <read imns="false" is_set="false">
+                    <touched_attributes/>
+                </read>
+                <update imns="false" is_set="false">
+                    <touched_attributes/>
+                </update>
+                <delete imns="false" is_set="false">
+                    <touched_attributes/>
+                </delete>
+                <best_read imns="false" is_set="false"/>
+                <influences>
+                    <influence entity_id_ref="E0" imns="false" is_set="false"/>
+                    <influence entity_id_ref="E1" imns="false" is_set="false"/>
+                </influences>
+            </action>
+            <action entity_id_ref="E0" function_id_ref="F2">
+                <create imns="false" is_set="false">
+                    <touched_attributes/>
+                </create>
+                <read imns="false" is_set="false">
+                    <touched_attributes/>
+                </read>
+                <update imns="false" is_set="false">
+                    <touched_attributes/>
+                </update>
+                <delete imns="false" is_set="false">
+                    <touched_attributes/>
+                </delete>
+                <best_read imns="false" is_set="false"/>
+                <influences>
+                    <influence entity_id_ref="E1" imns="false" is_set="false"/>
+                    <influence entity_id_ref="E2" imns="false" is_set="false"/>
+                </influences>
+            </action>
+            <action entity_id_ref="E1" function_id_ref="F2">
+                <create imns="false" is_set="false">
+                    <touched_attributes/>
+                </create>
+                <read imns="false" is_set="false">
+                    <touched_attributes/>
+                </read>
+                <update imns="false" is_set="false">
+                    <touched_attributes/>
+                </update>
+                <delete imns="false" is_set="false">
+                    <touched_attributes/>
+                </delete>
+                <best_read imns="false" is_set="false"/>
+                <influences>
+                    <influence entity_id_ref="E0" imns="false" is_set="false"/>
+                    <influence entity_id_ref="E2" imns="false" is_set="false"/>
+                </influences>
+            </action>
+            <action entity_id_ref="E2" function_id_ref="F2">
+                <create imns="false" is_set="false">
+                    <touched_attributes/>
+                </create>
+                <read imns="false" is_set="false">
+                    <touched_attributes/>
+                </read>
+                <update imns="false" is_set="false">
+                    <touched_attributes/>
+                </update>
+                <delete imns="false" is_set="false">
+                    <touched_attributes/>
+                </delete>
+                <best_read imns="false" is_set="false"/>
+                <influences>
+                    <influence entity_id_ref="E0" imns="false" is_set="false"/>
+                    <influence entity_id_ref="E1" imns="false" is_set="false"/>
+                </influences>
+            </action>
+        </actions>
+        <test_cases/>
+    </crud>
+</project>
