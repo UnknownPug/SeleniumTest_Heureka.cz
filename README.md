@@ -23,3 +23,5 @@ The testing process is as follows:
 • There is also a folder where we store the profiles and
 
 • There is also a folder scenario-testing with all the scenarios for testing. 
+
+Enjoy 🙃
