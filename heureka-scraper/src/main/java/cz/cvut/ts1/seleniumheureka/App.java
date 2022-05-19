@@ -91,7 +91,7 @@ public class App {
     } while (true);
   }
 
-  private static boolean getInStock(InputStream in) {
+  public static boolean getInStock(InputStream in) {
     Scanner input = new Scanner(in);
     System.out.println("Does the laptop need to be in stock? (y/n)");
 
