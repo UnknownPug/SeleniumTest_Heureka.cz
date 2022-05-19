@@ -1,16 +1,16 @@
-# This program was created as a semester project of the TS1
+## This program was created as a semester project of the TS1
 
-## (CTU - Summer semester 2022)
+### (CTU - Summer semester 2022)
 
-### Authors: Dmitry Rastvorov, Filip Krul
+#### Authors: Dmitry Rastvorov, Filip Krul
 
-### Project: SELEIUM TEST (Heureka.cz)
+#### Project: SELEIUM TEST (Heureka.cz)
 -- -- --
 #### The functionality of our program 
 
 #### This program is written to test the site Heureka.cz
-
-The testing process is as follows: 
+-- -- --
+#### The testing process is as follows: 
 
 • We open the site, log in, open the laptops section, select specific models and add them to the list for comparison.
 
