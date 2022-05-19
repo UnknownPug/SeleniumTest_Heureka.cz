@@ -2,22 +2,25 @@ package cz.cvut.ts1.seleniumheureka;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class App {
-
+  static Scanner input;
   public static void main(String[] args) throws InterruptedException {
+    input = new Scanner(System.in);
     System.out.println(
       "Welcome to the heureka notebook browser (crappy edition)!"
     );
     System.out.print("Please enter your login email to heureka: ");
-    String email = System.console().readLine();
+    String email = input.nextLine();
 
     System.out.print("Please enter your login password: ");
-    String password = System.console().readLine();
+    String password = input.nextLine();
 
-    System.setProperty(Consts.DRIVER_TYPE, Consts.DRIVER_LOCATIONS);
+    System.setProperty(Consts.DRIVER_TYPE, Consts.DRIVER_MAC_LOCATIONS);
 
     WebDriver driver = new ChromeDriver();
 
@@ -58,6 +61,7 @@ public class App {
     for (int i = 0; i < numberOfLaptops; i++) {
       System.out.println(laptops.get(i).toString());
     }
+    input.close();
   }
 
   private static int howManyLaptopsToShow(int nOfFoundLaptops) {
@@ -65,7 +69,7 @@ public class App {
       "How many laptops do you want to see? (1-" + nOfFoundLaptops + "): "
     );
     do {
-      String numberOfLaptopsString = System.console().readLine();
+      String numberOfLaptopsString = input.nextLine();
       int numberOfLaptopsInt = Integer.parseInt(numberOfLaptopsString);
       if (numberOfLaptopsInt > 0 && numberOfLaptopsInt <= nOfFoundLaptops) {
         return numberOfLaptopsInt;
@@ -81,7 +85,7 @@ public class App {
     System.out.println("Does the laptop need to be in stock? (y/n)");
 
     while (true) {
-      String answer = System.console().readLine();
+      String answer = input.nextLine();
       if (answer.equals("y")) {
         return true;
       } else if (answer.equals("n")) {
@@ -101,7 +105,7 @@ public class App {
     System.out.println("3: 80% or higher");
 
     do {
-      String read = System.console().readLine();
+      String read = input.nextLine();
       if (read.isEmpty()) {
         return null;
       }
@@ -123,7 +127,7 @@ public class App {
       "Please enter the minimum price [leave blank if it doesn't matter]:"
     );
     do {
-      String min = System.console().readLine();
+      String min = input.nextLine();
       if (min.isEmpty()) {
         return null;
       }
@@ -147,7 +151,7 @@ public class App {
       "Please enter the maximum price [leave blank if it doesn't matter]:"
     );
     do {
-      String max = System.console().readLine();
+      String max = input.nextLine();
       if (max.isEmpty()) {
         return null;
       }

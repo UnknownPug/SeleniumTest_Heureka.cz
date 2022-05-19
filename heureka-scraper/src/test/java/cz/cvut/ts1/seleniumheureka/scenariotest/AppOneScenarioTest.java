@@ -1,10 +1,13 @@
-package cz.cvut.ts1.seleniumheureka;
+package cz.cvut.ts1.seleniumheureka.scenariotest;
 
-import java.util.Arrays;
+import java.util.List;
+
+import cz.cvut.ts1.seleniumheureka.MainPage;
+import cz.cvut.ts1.seleniumheureka.TestCase;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-public class AppTest extends TestCase {
+public class AppOneScenarioTest extends TestCase {
 
   @ParameterizedTest
   @CsvSource("ngvup3414@budgermile.rest,123456789")
@@ -17,7 +20,7 @@ public class AppTest extends TestCase {
       .navToLaptopsPage()
       .setReviewTier(1)
       .setPriceRange(27000, 40000)
-      .selectManufacturers(Arrays.asList("Apple"))
+      .selectManufacturers(List.of("Apple"))
       .laptopInfo()
       .laptopPriceDescriptionOne()
       .backToLaptopPage()
