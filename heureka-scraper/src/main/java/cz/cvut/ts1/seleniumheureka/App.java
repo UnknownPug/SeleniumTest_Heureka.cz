@@ -21,6 +21,18 @@ public class App {
     System.out.print("Please enter your login password: ");
     String password = input.nextLine();
 
+    Integer minPrice = getMinPrice(in);
+    Integer maxPrice;
+    if (minPrice == null) {
+      maxPrice = getMaxPrice(0, in);
+    } else {
+      maxPrice = getMaxPrice(minPrice, in);
+    }
+
+    Integer reviewTier = getReviewTier(in);
+
+    boolean inStock = getInStock(in);
+
     System.setProperty(Consts.DRIVER_TYPE, Consts.DRIVER_LOCATIONS);
 
     WebDriver driver = new ChromeDriver();
@@ -33,22 +45,12 @@ public class App {
 
     LaptopsSearchPage lsp = ump.navToLaptopsPage();
 
-    Integer minPrice = getMinPrice(in);
-    Integer maxPrice;
-    if (minPrice == null) {
-      maxPrice = getMaxPrice(0, in);
-    } else {
-      maxPrice = getMaxPrice(minPrice, in);
-    }
-
     lsp.setPriceRange(minPrice, maxPrice);
 
-    Integer reviewTier = getReviewTier(in);
     if (reviewTier != null) {
       lsp.setReviewTier(reviewTier);
     }
 
-    boolean inStock = getInStock(in);
     if (inStock) {
       lsp.requireAvailability();
     }
