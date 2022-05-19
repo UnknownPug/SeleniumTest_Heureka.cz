@@ -1,8 +1,14 @@
-# SeleniumTest_Heureka.cz
+# This program was created as a semester project of the TS1
 
-### The functionality of our program 
+## (CTU - Summer semester 2022)
 
-##### This program is written to test the site Heureka.cz. 
+### Authors: Dmitry Rastvorov, Filip Krul
+
+### Project: SELEIUM TEST (Heureka.cz)
+-- -- --
+#### The functionality of our program 
+
+#### This program is written to test the site Heureka.cz
 
 The testing process is as follows: 
 
