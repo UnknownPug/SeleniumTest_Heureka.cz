@@ -1,27 +1,24 @@
-## This program was created as a semester project of the TS1
+# Semester Project - TS1
 
-### (CTU - Summer semester 2022)
+### Czech Technical University in Prague (CTU) - Summer Semester 2022
 
 #### Authors: Dmitry Rastvorov, Filip Krul
 
-#### Project: SELEIUM TEST (Heureka.cz)
--- -- --
-#### The functionality of our program 
+#### Project Title: Selenium Test Automation (Heureka.cz)
+---
+### Program Overview
 
-#### This program is written to test the site Heureka.cz
--- -- --
-#### The testing process is as follows: 
+This program was developed as part of a semester project to test the functionality of the website Heureka.cz using automated Selenium scripts.
 
-• We open the site, log in, open the laptops section, select specific models and add them to the list for comparison.
+---
+### Testing Workflow
 
-• We also add the 3rd model to the cart and remove it from there.
+The program automates the following sequence of actions on Heureka.cz:
 
-• Then we check the cars section, choose a specific car, read the information, after that we read the information on how to choose a car. 
-
-• After that we get to the home page and log out from the profile. 
-
-• There is also a folder where we store the profiles and
-
-• There is also a folder testing-scenario with all the scenarios for testing. 
-
-Enjoy 🙃
+- Navigate to the website, log into a user account, and access the laptops section.
+- Select specific laptop models and add them to the comparison list.
+- Add a third model to the shopping cart, then remove it.
+- Access the cars section, select a particular vehicle, and read the available information. Subsequently, review the guidance on how to choose a car.
+- Return to the homepage and log out from the user profile.
+- Store user profiles in a designated folder for future use.
+- Store all testing scenarios in the "testing-scenario" folder for reference.
